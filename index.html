@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Andrey Rodrig — Homepage</title>
+  <meta name="description" content="Homepage de Andrey Rodrig: estudante de Sistemas de Informação focado em Ciência de Dados." />
+  <meta name="theme-color" content="#6b21a8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1a0f1f;
+      --card: #2a1833;
+      --text: #f3e8ff;
+      --muted: #c4b5fd;
+      --brand: #6b21a8;
+      --accent: #9333ea;
+      --ring: rgba(147, 51, 234, .35);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(147,51,234,.12), transparent 40%),
+                  radial-gradient(1000px 500px at 0% 10%, rgba(107,33,168,.12), transparent 40%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 24px; }
+    .nav { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(8px); background: rgba(26,15,31,.65); border-bottom: 1px solid rgba(255,255,255,.06); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo { font-weight: 800; letter-spacing: .5px; }
+    .logo b { color: var(--brand); }
+    .nav a { opacity: .9; }
+    .nav-links { display: flex; gap: 18px; align-items: center; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,.08); background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); box-shadow: 0 0 0 0 var(--ring); transition: box-shadow .25s ease, transform .15s ease, border-color .2s ease; }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.14); }
+    .btn.primary { background: linear-gradient(180deg, rgba(147,51,234,.16), rgba(107,33,168,.14)); border-color: rgba(147,51,234,.4); }
+    .chip { padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); font-size: 12px; color: var(--muted); }
+    .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: center; padding: 40px 0 10px; }
+    .title { font-size: clamp(28px, 6vw, 54px); line-height: 1.05; margin: 10px 0 12px; font-weight: 800; }
+    .subtitle { color: var(--muted); font-size: clamp(15px, 2.5vw, 18px); }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .stat { display: grid; grid-template-columns: auto 1fr; gap: 8px 12px; align-items: center; margin-top: 16px; }
+    .stat .num { font-size: 20px; font-weight: 700; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; padding: 20px; }
+    .mock { aspect-ratio: 16/10; width: 100%; border-radius: 16px; background: linear-gradient(120deg, rgba(107,33,168,.22), rgba(147,51,234,.12)); border: 1px dashed rgba(255,255,255,.22); display: grid; place-items: center; font-weight: 600; letter-spacing: .4px; opacity: .9; }
+    section { padding: 24px 0 8px; }
+    .section-title { font-size: 20px; margin: 0 0 14px; opacity: .95; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-12 { grid-column: span 12; }
+    .project { padding: 16px; border-radius: 18px; border: 1px solid rgba(255,255,255,.08); background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)); transition: transform .15s ease, border-color .2s ease, box-shadow .2s ease; }
+    .project:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.16); box-shadow: 0 10px 30px rgba(20,0,40,.3); }
+    .project h3 { margin: 6px 0 6px; font-size: 18px; }
+    .project p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    footer { margin: 40px 0 10px; color: var(--muted); font-size: 14px; text-align: center; }
+    @media (max-width: 960px) { .hero { grid-template-columns: 1fr; } .col-4 { grid-column: span 6; } }
+    @media (max-width: 640px) { .col-4, .col-6 { grid-column: span 12; } }
+    input, textarea { width: 100%; padding: 12px 14px; margin: 6px 0 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.03); color: var(--text); outline: none; }
+    input:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 6px var(--ring); }
+    label { font-size: 14px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#">andrey<b>rodrig</b></a>
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+        <button class="btn" id="themeToggle" aria-label="Alternar tema">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="container hero">
+    <div>
+      <span class="chip">Bem-vindo ao meu homepage</span>
+      <h1 class="title">Olá, eu sou o <span style="color:var(--accent)">Andrey Rodrig</span> 👋</h1>
+      <p class="subtitle">Estudante de <b>Sistemas de Informação</b> e aspirante a <b>Cientista de Dados</b>. Aqui compartilho projetos, aprendizados e ideias sobre Python, análise de dados e machine learning.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/SeuUsuarioAqui" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/SeuPerfilAqui" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="#projetos">Ver Projetos</a>
+      </div>
+      <div class="stat">
+        <div class="chip">📍 Brasil</div>
+        <div class="num">Ciência de Dados • Python • SQL</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="mock">Área para imagem / gráfico do portfólio</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="sobre">
+      <h2 class="section-title">Sobre</h2>
+      <div class="card">
+        <p>Sou curioso por dados e adoro transformar perguntas em respostas com código. No momento, estudo <b>Python, Pandas, NumPy, SQL</b> e fundamentos de <b>Machine Learning</b>. Meu objetivo é construir soluções que gerem valor real para pessoas e negócios.</p>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <h2 class="section-title">Projetos em destaque</h2>
+      <div class="grid">
+        <article class="project col-4">
+          <h3>📈 Análise de Vendas</h3>
+          <p>Dashboard com KPIs de vendas usando Python e Pandas. Exporta relatórios automáticos.</p>
+          <div class="tags">
+            <span class="chip">Python</span>
+            <span class="chip">Pandas</span>
+            <span class="chip">Matplotlib</span>
+          </div>
+          <p><a href="#" class="btn" style="padding:8px 10px">Ver repositório</a></p>
+        </article>
+        <article class="project col-4">
+          <h3>🤖 Classificador de Sentimento</h3>
+          <p>Modelo simples que classifica avaliações como positivas ou negativas.</p>
+          <div class="tags">
+            <span class="chip">Scikit-learn</span>
+            <span class="chip">NLP</span>
+          </div>
+          <p><a href="#" class="btn" style="padding:8px 10px">Ver repositório</a></p>
+        </article>
+        <article class="project col-4">
+          <h3>🗺️ Pipeline de Dados</h3>
+          <p>ETL para coletar, tratar e armazenar dados públicos em um banco relacional.</p>
+          <div class="tags">
+            <span class="chip">SQL</span>
+            <span class="chip">Airflow</span>
+          </div>
+          <p><a href="#" class="btn" style="padding:8px 10px">Ver repositório</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Habilidades</h2>
+      <div class="card">
+        <div class="skills">
+          <span class="chip">Python</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">NumPy</span>
+          <span class="chip">Matplotlib</span>
+          <span class="chip">Scikit-learn</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Git</span>
+          <span class="chip">APIs</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <h2 class="section-title">Contato</h2>
+      <div class="grid">
+        <div class="col-6">
+          <div class="card">
+            <form class="form" onsubmit="handleSubmit(event)">
+              <label>Nome<br>
+                <input type="text" name="nome" placeholder="Seu nome" required>
+              </label>
+              <label>E-mail<br>
+                <input type="email" name="email" placeholder="seu@email.com" required>
+              </label>
+              <label>Mensagem<br>
+                <textarea name="mensagem" rows="5" placeholder="Escreva sua mensagem" required></textarea>
+              </label>
+              <button class="btn primary" type="submit">Enviar</button>
+              <p id="formMsg" class="subtitle" style="margin-top:10px"></p>
+            </form>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+            <p>Prefere falar direto? Envie um e-mail:</p>
+            <p><a class="btn" href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a></p>
+            <p>Ou me encontre nas redes:</p>
+            <p class="cta">
+              <a class="btn" href="https://github.com/SeuUsuarioAqui" target="_blank" rel="noopener">GitHub</a>
+              <a class="btn" href="https://www.linkedin.com/in/SeuPerfilAqui" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="btn" href="https://instagram.com/SeuPerfilAqui" target="_blank" rel="noopener">Instagram</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>© <span id="year"></span> Andrey Rodrig. Feito com ♥ e café.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function handleSubmit(e) {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target));
+      const msg = document.getElementById('formMsg');
+      msg.textContent = `Obrigado, ${data.nome}! Vou responder em breve.`;
+      e.target.reset();
+    }
+    const key = 'theme-preference';
+    const toggleBtn = document.getElementById('themeToggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const saved = localStorage.getItem(key);
+    let dark = saved ? saved === 'dark' : prefersDark;
+    function applyTheme() {
+      document.documentElement.style.setProperty('--bg', dark ? '#1a0f1f' : '#faf5ff');
+      document.documentElement.style.setProperty('--card', dark ? '#2a1833' : '#ffffff');
+      document.documentElement.style.setProperty('--text', dark ? '#f3e8ff' : '#1a0f1f');
+      document.documentElement.style.setProperty('--muted', dark ? '#c4b5fd' : '#7e22ce');
+      document.body.style.color = dark ? '#f3e8ff' : '#1a0f1f';
+      document.body.style.background = dark
+        ? 'radial-gradient(1200px 600px at 80% -10%, rgba(147,51,234,.12), transparent 40%),\n           radial-gradient(1000px 500px at 0% 10%, rgba(107,33,168,.12), transparent 40%),\n           #1a0f1f'
+        : 'radial-gradient(1200px 600px at 80% -10%, rgba(147,51,234,.10), transparent 40%),\n           radial-gradient(1000px 500px at 0% 10%, rgba(107,33,168,.10), transparent 40%),\n           #faf5ff';
+      toggleBtn.textContent = dark ? '🌙' : '☀️';
+    }
+    applyTheme();
+    toggleBtn.addEventListener('click', () => {
+      dark = !dark; localStorage.setItem(key, dark ? 'dark' : 'light'); applyTheme();
+    });
+ 
